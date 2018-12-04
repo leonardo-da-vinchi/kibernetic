@@ -1,3 +1,9 @@
+#include <OneWire.h>
+#include <DallasTemperature.h>
+int ds = 4;
+OneWire onewire(ds);
+DallasTemperature dt(&onewire);
+
 int button = 2;
 int diod = 3;
 int temperature = 25;
@@ -8,6 +14,7 @@ long time = 0;
 
 void setup() {
   Serial.begin(9600);
+  dt.begin();
   pinMode(button, INPUT);
 
 }
@@ -29,6 +36,9 @@ void miganie() {
 }
 
 void loop() {
+  dt.requestTemperatures();
+  temperature = dt.getTempCByIndex(0);
+  
   if (millis() - time >= 10000) {
     miganie();
     if (TenSekBul) {
