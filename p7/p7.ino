@@ -6,7 +6,7 @@ DallasTemperature dt(&onewire);
 
 int button = 2;
 int diod = 3;
-int temperature = 25;
+int temperature = 0;
 bool bulCels = true;
 bool ThreeSekBul = true;
 bool TenSekBul = true;
