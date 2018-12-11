@@ -2,22 +2,21 @@ int steakX = 0, steakY = 0, valueDiods = 0;
 int diod1 = 3, diod2 = 5, diod3 = 9, diod4 = 10, diod5 = 11, migDiod = 0;
 int diods[5] = {diod1, diod2, diod3, diod4, diod5};
 bool firstDiodBul = true, activateBul = false, victoryBul = false;
-int clicker = 7;
+int clicker = 13;
 
 
 
 void setup() {
-  randomSeed(0);
+  randomSeed(analogRead(A2));
   pinMode(clicker, INPUT);
-
 }
 
 void miganie() {
   delay(20);
-  digitalWrite(migDiod, 0);
-  delay(20);
-  digitalWrite(migDiod, 1);
-  delay(20);
+  digitalWrite(diods[migDiod], 0);
+  delay(200);
+  digitalWrite(diods[migDiod], 1);
+  delay(200);
 }
 
 void offAllDiods() {
@@ -29,12 +28,18 @@ void offAllDiods() {
 }
 
 void miganieAll() {
+  digitalWrite(diod1, 0);
+  digitalWrite(diod2, 0);
+  digitalWrite(diod3, 0);
+  digitalWrite(diod4, 0);
+  digitalWrite(diod5, 0);
+  delay(200);
   digitalWrite(diod1, 1);
   digitalWrite(diod2, 1);
   digitalWrite(diod3, 1);
   digitalWrite(diod4, 1);
   digitalWrite(diod5, 1);
-  delay(20);
+  delay(200);
 }
 
 
@@ -76,7 +81,7 @@ void loop() {
     }
     else {
       for (int i = 1; i < migDiod; i++) {
-        digitalWrite(diods[i], valueDiods - valueDiods * (i - 1));
+        analogWrite(diods[i], valueDiods - valueDiods * (i - 1));
       }
     }
   }
