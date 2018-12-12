@@ -7,6 +7,11 @@ void setup()
 {
   Serial.begin(9600);
   randomSeed(5);
+  pinMode(diod1, OUTPUT);
+  pinMode(diod2, OUTPUT);
+  pinMode(diod3, OUTPUT);
+  pinMode(diod4, OUTPUT);
+  pinMode(diod5, OUTPUT);
 }
 
 
@@ -104,26 +109,26 @@ void loop() {
 
 
     if (steakX < 430) {
-      while(analogRead(A0) < 430){
+      while(analogRead(A0) < 400){
         valueDiods += 3;
         delay(20);
       }
     }
     else if (steakX > 530) {
-      while(analogRead(A0) > 530){
+      while(analogRead(A0) > 500){
         valueDiods += 5;
         delay(20);
       }
     }
 
     if (steakY < 430) {
-      while(analogRead(A1) < 430){
+      while(analogRead(A1) < 400){
         valueDiods += 10;
         delay(20);
       }  
     }
     else if (steakY > 530) {
-      while(analogRead(A1) > 530){
+      while(analogRead(A1) > 500){
         valueDiods += 1;
         delay(20);
       }  

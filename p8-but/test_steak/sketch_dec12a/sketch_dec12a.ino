@@ -13,6 +13,7 @@ void loop() {
   Serial.println(steakX);
   Serial.print("y: ");
   Serial.println(steakY);
-  Serial.print(digitalRead(clicker));
+  Serial.println(digitalRead(clicker));
   Serial.println("/////");
+  delay(1500);
 }
