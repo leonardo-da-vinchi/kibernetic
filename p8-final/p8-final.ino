@@ -108,26 +108,26 @@ void loop() {
     miganie();
 
 
-    if (steakX < 430) {
+    if (steakX < 400) {
       while(analogRead(A0) < 400){
         valueDiods += 3;
         delay(20);
       }
     }
-    else if (steakX > 530) {
+    else if (steakX > 500) {
       while(analogRead(A0) > 500){
         valueDiods += 5;
         delay(20);
       }
     }
 
-    if (steakY < 430) {
+    if (steakY < 400) {
       while(analogRead(A1) < 400){
         valueDiods += 10;
         delay(20);
       }  
     }
-    else if (steakY > 530) {
+    else if (steakY > 500) {
       while(analogRead(A1) > 500){
         valueDiods += 1;
         delay(20);
@@ -158,4 +158,4 @@ void loop() {
     activateBul = false;
   }
 
-}
+}  
